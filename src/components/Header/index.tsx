@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { useLocation } from 'react-router'
 import style from './Header.module.scss'
 import { ReactComponent as Logo } from './ic_logo.svg'
 import { ReactComponent as PersonIcon } from './ic_person.svg'
@@ -63,7 +64,7 @@ const Header = () => {
             <span className={style.text}>Имя Фамилия</span>
           </div>
         )}
-        <Menu />
+        <Menu setMenuActive={setMenuActive} />
       </div>
     </header>
   )

@@ -12,26 +12,36 @@ import {
   Finance,
   Exit,
 } from './icons'
-import { useState } from 'react'
+import { Dispatch, SetStateAction, useState } from 'react'
 
 const setActive = ({ isActive }: { isActive: boolean }) =>
   isActive ? style.link + ' ' + style._active : style.link
 
-const Menu = () => {
+const Menu = ({
+  setMenuActive,
+}: {
+  setMenuActive?: Dispatch<SetStateAction<boolean>>
+}) => {
   const [settingsOpen, setSettingsOpen] = useState(false)
+
+  const clickHandler = () => {
+    if (setMenuActive) {
+      setMenuActive(false)
+    }
+  }
 
   return (
     <>
       <h2 className={style.title}>Меню</h2>
       <nav className={style.nav}>
         <ul className={style.list}>
-          <li>
+          <li onClick={clickHandler}>
             <NavLink to="/" className={setActive} end>
               <Home />
               Главная
             </NavLink>
           </li>
-          <li>
+          <li onClick={clickHandler}>
             <NavLink to="address" className={setActive}>
               <Search />
               Поиск адресов
