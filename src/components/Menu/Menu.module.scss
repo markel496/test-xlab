@@ -1,0 +1,122 @@
+.title {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  margin: 0px 0px 32px 0px;
+  @media (max-width: 768px) {
+    text-align: center;
+  }
+}
+
+.nav {
+  @media (max-width: 768px) {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.list {
+  li:not(:last-child) {
+    margin: 0px 0px 40px 0px;
+    @media (max-width: 768px) {
+      margin: 0px 0px 25px 0px;
+    }
+  }
+  @media (max-width: 768px) {
+    width: 205px;
+  }
+}
+
+.link {
+  display: flex;
+  line-height: 24px;
+  font-weight: 600;
+  align-items: center;
+  color: #1c1c1e;
+  svg {
+    width: 32px;
+    margin: 0px 16px 0px 0px;
+    @media (max-width: 768px) {
+      path {
+        fill: #fff;
+      }
+    }
+  }
+  @media (max-width: 768px) {
+    color: #fff;
+  }
+}
+
+._active {
+  position: relative;
+  overflow-x: hidden;
+  &::after {
+    content: '';
+    position: absolute;
+    width: 6px;
+    right: -3px;
+    top: 0;
+    bottom: 0;
+    background-color: #4f27bf;
+    border-radius: 5px;
+    @media (max-width: 768px) {
+      background-color: #fff;
+    }
+  }
+}
+
+.settingsContainer {
+  position: relative;
+  cursor: pointer;
+  transition: margin 0.3s ease-in-out;
+  &:not(:last-child) {
+    margin: 0;
+  }
+  &::after {
+    content: '';
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%) rotate(180deg);
+    background: url('./icons/toggle.svg') 0 0 no-repeat;
+    transition: 0.3s ease-in-out;
+    @media (max-width: 768px) {
+      right: 0;
+    }
+  }
+}
+
+.open {
+  &:not(:last-child) {
+    margin: 0px 0px 20px 0px;
+  }
+  &::after {
+    transform: translateY(-50%) rotate(0);
+  }
+  & + .settings {
+    opacity: 1;
+    visibility: visible;
+    max-height: 500px;
+    pointer-events: auto;
+    transition: 0.3s ease-in;
+  }
+}
+
+.settings {
+  opacity: 0;
+  visibility: hidden;
+  max-height: 0;
+  pointer-events: none;
+  margin: 0 0 0 48px;
+  transition: 0.3s ease-out;
+  .link {
+    &:not(:last-child) {
+      margin: 0px 0px 32px 0px;
+      @media (max-width: 768px) {
+        margin: 0px 0px 20px 0px;
+      }
+    }
+  }
+}

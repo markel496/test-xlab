@@ -1,0 +1,16 @@
+.container {
+  box-shadow: 0px 2px 8px rgba(2, 0, 97, 0.25);
+  border-radius: 10px;
+  padding: 24px;
+  li {
+    font-weight: 500;
+    color: #000;
+    padding: 16px 0;
+    border-top: 1px solid #d7d7d7;
+  }
+  p {
+    @media (max-width: 570px) {
+      text-align: center;
+    }
+  }
+}
